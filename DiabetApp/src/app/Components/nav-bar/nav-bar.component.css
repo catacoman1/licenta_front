@@ -1,43 +1,35 @@
 .navbar {
+    width: 100%;
+  }
+
+  .navbar-brand {
+    margin-right: auto; 
+  }
+  
+
+  .nav-item {
+    text-align: center; 
+  }
+  
+  .nav-link {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    background-color: #000080; /* Adjust color as per your screenshot */
-    padding: 1rem;
+    justify-content: center;
+    height: 100%;
   }
   
-  .logo {
-    color: white;
-    font-size: 1.5rem;
-  }
+
+  @media (max-width: 991px) {
+    .navbar-nav {
+      flex-direction: column;
+    }
   
-  .nav-links {
-    list-style: none;
-  }
+    .nav-item {
+      width: 100%; 
+    }
   
-  .nav-links li {
-    display: inline;
-    margin-right: 20px;
-  }
-  
-  .nav-links a {
-    color: white;
-    text-decoration: none;
-  }
-  
-  .search {
-    display: flex;
-  }
-  
-  .search input {
-    padding: 0.5rem;
-    margin-right: 0.5rem;
-  }
-  
-  .search button {
-    padding: 0.5rem;
-    background: white;
-    border: none;
-    cursor: pointer;
+    .navbar-toggler {
+      align-self: flex-start;
+    }
   }
   
