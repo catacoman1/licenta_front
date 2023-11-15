@@ -1,1 +1,9 @@
-<p>home works!</p>
+<div *ngIf="users.length; else noData">
+    <div *ngFor="let user of users">
+      <p>{{ user.first_name }} {{ user.last_name }}</p>
+      <p>Email: {{ user.email }}</p>
+      <!-- Display other properties as needed -->
+    </div>
+  </div>
+  <ng-template #noData><p>No users available.</p></ng-template>
+  
