@@ -11,6 +11,7 @@ import { ReteteComponent } from './Components/retete/retete.component'
 import { DespreComponent } from './Components/despre/despre.component'
 import { RaportGlicemieComponent } from './Components/raport-glicemie/raport-glicemie.component';
 import { ContactComponent } from './Components/contact/contact.component';
+import { LoginComponent } from './Components/login/login.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ContactComponent } from './Components/contact/contact.component';
     ReteteComponent,
     DespreComponent,
     RaportGlicemieComponent,
-    ContactComponent
+    ContactComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

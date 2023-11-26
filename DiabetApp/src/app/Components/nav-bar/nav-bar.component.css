@@ -1,11 +1,13 @@
 .navbar {
-    width: 100%;
-    
-  }
+  width: 100%;
+  display: flex; 
+  justify-content: space-between; 
+}
+.logo{
+  width:10%;
+}
 
-  .navbar-brand {
-    margin-right: auto; 
-  }
+ 
   
 
   .nav-item {
@@ -22,15 +24,15 @@
 
   @media (max-width: 991px) {
     .navbar-nav {
-      flex-direction: column;
+        flex-direction: column;
     }
-  
+
     .nav-item {
-      width: 100%; 
+        width: 100%;
     }
-  
+
     .navbar-toggler {
-      align-self: flex-start;
+        align-self: flex-end; 
     }
   }
   
