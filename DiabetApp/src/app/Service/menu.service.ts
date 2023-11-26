@@ -6,7 +6,7 @@ import { HttpClient } from "@angular/common/http";
 @Injectable({
     providedIn: 'root'
 })
-export class UserService {
+export class MenuService {
     private apiServerUrl = 'http://localhost:8080/api/menus'; 
 
     constructor(private http: HttpClient) { }

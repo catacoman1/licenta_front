@@ -9,15 +9,20 @@
       <img src="../../../assets/logo.png" id="icon" alt="User Icon" />
     </div>
 
-   
-    <form>
-      <input type="text" id="login" class="fadeIn second" name="login" placeholder="Email">
-      <input type="text" id="password" class="fadeIn third" name="login" placeholder="Password">
+    <!-- Update the form to use Angular's form functionality -->
+    <form (ngSubmit)="login()">
+      <input type="text" id="login" class="fadeIn second" [(ngModel)]="email" name="email" placeholder="Email" required>
+      <input type="password" id="password" class="fadeIn third" [(ngModel)]="password" name="login" placeholder="password" required>
       <input type="submit" class="fadeIn fourth" value="Log In">
     </form>
 
     <div id="formFooter">
       <a class="underlineHover" href="#">Forgot Password?</a>
+    </div>
+
+    <!-- Display error message -->
+    <div *ngIf="errorMessage" class="alert alert-danger">
+      {{ errorMessage }}
     </div>
 
   </div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../Service/user.service'
-import { User } from '../../Models/User/user'
+import { FoodItemService } from 'src/app/Service/fooditem.service';
+import { FoodItem } from './../../Models/FoodItem/fooditem';
 
 @Component({
   selector: 'app-home',
@@ -8,15 +8,15 @@ import { User } from '../../Models/User/user'
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  users: User[] = [];
+  foodItems: FoodItem[] = []; 
 
-  constructor(private userService: UserService) {}
+  constructor(private foodItemService: FoodItemService) {}
 
   ngOnInit(): void {
-    this.userService.getUsers().subscribe((data) => {
-      this.users = data;
+    this.foodItemService.getFoodItems().subscribe((data: FoodItem[]) => { 
+      this.foodItems = data;
     }, error => {
-      console.error('Error fetching users', error);
+      console.error('Error fetching food items', error);
     });
   }
 }
