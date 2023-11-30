@@ -1,0 +1,24 @@
+<form class="form-box" (ngSubmit)="signup()">
+  <div class="form-group">
+    <label for="exampleFirstName">First Name</label>
+    <input type="text" class="form-control" id="exampleFirstName" aria-describedby="nameHelp" placeholder="Enter First Name" [(ngModel)]="first_name" name="first_name">
+    <label for="exampleLastName">Last Name</label>
+    <input type="text" class="form-control" id="exampleLastName" aria-describedby="nameHelp" placeholder="Enter Last Name" [(ngModel)]="last_name" name="last_name">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" [(ngModel)]="email" name="email">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" [(ngModel)]="password" name="password">
+    <label for="exampleAge">Age</label>
+    <input type="number" class="form-control" id="exampleAge" aria-describedby="ageHelp" placeholder="Enter age" [(ngModel)]="age" name="age">
+    <label for="exampleFirstName">Diabetes Type</label>
+    <select class="form-select" aria-label="Default select example" [(ngModel)]="diabet" name="diabet">
+      <option selected>Gestational</option>
+      <option value="1">One</option>
+      <option value="2">Two</option>
+    </select>
+    <br>
+    <div class="form-group login">
+      <button type="submit" class="btn btn-primary">Sign Up</button>
+    </div>
+  </div>
+</form>

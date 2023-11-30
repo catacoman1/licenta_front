@@ -1,29 +1,18 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-<div class="wrapper fadeInDown">
-  <div id="formContent">
-
-    <div class="fadeIn first">
-      <img src="../../../assets/logo.png" id="icon" alt="User Icon" />
-    </div>
-
-    <!-- Update the form to use Angular's form functionality -->
-    <form (ngSubmit)="login()">
-      <input type="text" id="login" class="fadeIn second" [(ngModel)]="email" name="email" placeholder="Email" required>
-      <input type="password" id="password" class="fadeIn third" [(ngModel)]="password" name="login" placeholder="password" required>
-      <input type="submit" class="fadeIn fourth" value="Log In">
-    </form>
-
-    <div id="formFooter">
-      <a class="underlineHover" href="#">Forgot Password?</a>
-    </div>
-
-    <!-- Display error message -->
-    <div *ngIf="errorMessage" class="alert alert-danger">
-      {{ errorMessage }}
-    </div>
-
+<form class="form-box" (ngSubmit)="login()">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" [(ngModel)]="email" name="email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
-</div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" [(ngModel)]="password" name="password">
+  </div>
+  <div class="form-group login">
+    <button type="submit" class="btn btn-primary">Log In</button>
+    <button type="button" class="btn btn-secondary" (click)="signup()">Sign Up</button>
+  </div>
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{errorMessage}}
+  </div>
+</form>

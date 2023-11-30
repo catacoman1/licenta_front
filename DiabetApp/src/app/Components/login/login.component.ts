@@ -28,6 +28,9 @@ login(): void {
       }
     });
 }
+signup():void{
+  this.router.navigate(['/Signup'])
+}
 
 
 }

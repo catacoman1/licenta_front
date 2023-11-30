@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { Token } from '@angular/compiler';
 
 @Injectable({ providedIn: 'root' }) 
 export class AuthService {
   private loginUrl = 'http://localhost:8080/api/auth/authenticate'; 
-
+  private signupUrl = 'http://localhost:8080/api/auth/register';
   constructor(private http: HttpClient) {} 
 
   login(credentials: { email: string; password: string }): Observable<any> {
@@ -14,8 +15,12 @@ export class AuthService {
       tap(response => {
         
         localStorage.setItem('token', response.token);
+        
       })
     );
+  }
+  signUp(userDetails: { email: string; password: string; first_name: string; last_name: string; diabet: string; age: number }): Observable<any> {
+    return this.http.post<any>(this.signupUrl, userDetails);
   }
   logout(): void {
     localStorage.removeItem('token');

@@ -6,6 +6,7 @@ import { DespreComponent } from './Components/despre/despre.component';
 import { RaportGlicemieComponent } from './Components/raport-glicemie/raport-glicemie.component';
 import { HomeComponent } from './Components/home/home.component';
 import { LoginComponent } from './Components/login/login.component';
+import { SignupComponent } from './Components/signup/signup.component';
 
 const routes: Routes = [
   {path : "Retete", component: ReteteComponent},
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path: "Despre", component: DespreComponent},
   {path: "Raport_Glicemie", component:RaportGlicemieComponent},
   {path: "Home", component:HomeComponent},
-  {path: "Login", component:LoginComponent}
+  {path: "Login", component:LoginComponent},
+  {path: "Signup", component:SignupComponent}
 ];
 
 @NgModule({
