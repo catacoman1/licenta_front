@@ -20,7 +20,9 @@
     "@angular/router": "^16.2.0",
     "@fortawesome/fontawesome-free": "^6.5.0",
     "bootstrap": "^5.3.2",
+    "flowbite": "^2.2.1",
     "font-awesome": "^4.7.0",
+    "postcss-scss": "^4.0.9",
     "rxjs": "~7.8.0",
     "tailwind": "^4.0.0",
     "tslib": "^2.3.0",
@@ -38,8 +40,8 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "postcss": "^8.4.31",
-    "tailwindcss": "^3.3.5",
+    "postcss": "^8.4.32",
+    "tailwindcss": "^3.3.6",
     "typescript": "~5.1.3"
   }
 }

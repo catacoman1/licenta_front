@@ -22,19 +22,25 @@
     justify-content: center;
     height: 100%;
   }
+
+.nav-item.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%; 
+  left: 0;   
+  transform: translateX(-50%);
+}
+
   
 
-  @media (max-width: 991px) {
-    .navbar-nav {
-        flex-direction: column;
-    }
-
-    .nav-item {
-        width: 100%;
-    }
-
-    .navbar-toggler {
-        align-self: flex-end; 
-    }
+@media (max-width: 768px) { 
+  .navbar-toggler {
+    position: absolute;
+    right: 0;
+    top: 20%;
   }
+}
   
