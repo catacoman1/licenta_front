@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class NavBarComponent {
 
+  dropdownOpen = false; 
+
+  toggleDropdown(): void {
+    this.dropdownOpen = !this.dropdownOpen;
+  }
+
 }
