@@ -7,9 +7,17 @@ import { Component } from '@angular/core';
 })
 export class NavBarComponent {
 
-  dropdownOpen = false; 
 
-  toggleDropdown(): void {
+  mobileMenuOpen: boolean = false;
+  dropdownOpen: boolean = false;
+
+  constructor() {}
+
+  toggleMobileMenu() {
+    this.mobileMenuOpen = !this.mobileMenuOpen;
+  }
+
+  toggleDropdown() {
     this.dropdownOpen = !this.dropdownOpen;
   }
 

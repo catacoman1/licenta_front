@@ -13,6 +13,7 @@ import { RaportGlicemieComponent } from './Components/raport-glicemie/raport-gli
 import { ContactComponent } from './Components/contact/contact.component';
 import { LoginComponent } from './Components/login/login.component';
 import { SignupComponent } from './Components/signup/signup.component';
+import { FooterComponent } from './Components/footer/footer/footer.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { SignupComponent } from './Components/signup/signup.component';
     RaportGlicemieComponent,
     ContactComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    FooterComponent
     
   ],
   imports: [

@@ -1,9 +1,42 @@
-<div *ngIf="foodItems.length; else noData">
-    <div *ngFor="let fooditem of foodItems">
-      <p>{{ fooditem.name }} {{ fooditem.calories }}</p>
+<div class="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
+  <img src="../../../assets/background.jpg" alt="" class="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center blur-bg">
+  <div class="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl" aria-hidden="true">
+    <div class="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-20" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+  </div>
+  <div class="absolute -top-52 left-1/2 -z-10 -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0 sm:transform-gpu" aria-hidden="true">
+    <div class="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-20" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+  </div>
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="max-w-4xl lg:mx-0 lg:pl-15"> <!-- Adjusted max-width and added left padding -->
+      <h2 class="text-4xl font-bold tracking-tight text-white sm:text-8xl">Meniuri</h2>
+      <h3 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">pentru persoane cu diabet.</h3>
+      <p class="mt-6 text-lg leading- text-white">Descoperiti cele mai bune retete pentru a va tine nivelul de zahar din sange sub control.</p>
+    </div>
+    <div class="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
       
-     
     </div>
   </div>
-  <ng-template #noData><p>No fooditems available.</p></ng-template>
   
+</div>
+<section class="relative isolate overflow-hidden bg-white px-6 py-24 sm:py-32 lg:px-8">
+  <div class="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.indigo.100),white)] opacity-20"></div>
+  <div class="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center"></div>
+  <div class="mx-auto max-w-2xl lg:max-w-4xl">
+    <img class="mx-auto h-20" src="../../../assets/logo.png" alt="">
+    <figure class="mt-10">
+      <blockquote class="text-center text-xl font-semibold leading-8 text-gray-900 sm:text-2xl sm:leading-9">
+        <p>“Diabetul, o călătorie nealeasă dar parcursă cu curaj. În fiecare masă, o oportunitate de a hrăni și vindeca, unde alimentația se transformă într-o îmbrățișare plină de grijă pentru echilibrul corpului nostru.”</p>
+      </blockquote>
+      <figcaption class="mt-10">
+        <img class="mx-auto h-10 w-10 rounded-full" src="https://yt3.googleusercontent.com/bhCFPl1IrrTvYDhcjqjPXt3lFEUNTrMbl1ZukwIn6ROs8OT97471aClo8cxUHWnO6IeLgv5QHw=s900-c-k-c0x00ffffff-no-rj" alt="">
+        <div class="mt-4 flex items-center justify-center space-x-3 text-base">
+          <div class="font-semibold text-gray-900">Cătălin-Andrei Coman</div>
+          <svg viewBox="0 0 2 2" width="3" height="3" aria-hidden="true" class="fill-gray-900">
+            <circle cx="1" cy="1" r="1" />
+          </svg>
+          <div class="text-gray-600">CEO of DiabetMenuApp</div>
+        </div>
+      </figcaption>
+    </figure>
+  </div>
+</section>

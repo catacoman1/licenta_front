@@ -12,7 +12,7 @@ const routes: Routes = [
   {path : "Retete", component: ReteteComponent},
   {path: "Contact", component: ContactComponent},
   {path: "Despre", component: DespreComponent},
-  {path: "Raport_Glicemie", component:RaportGlicemieComponent},
+  {path: "RaportGlicemie", component:RaportGlicemieComponent},
   {path: "Home", component:HomeComponent},
   {path: "Login", component:LoginComponent},
   {path: "Signup", component:SignupComponent}
