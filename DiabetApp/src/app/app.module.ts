@@ -14,6 +14,8 @@ import { ContactComponent } from './Components/contact/contact.component';
 import { LoginComponent } from './Components/login/login.component';
 import { SignupComponent } from './Components/signup/signup.component';
 import { FooterComponent } from './Components/footer/footer/footer.component';
+import { CardComponent } from './Components/card/card.component';
+import { UserMenuComponent } from './Components/user-menu/user-menu.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { FooterComponent } from './Components/footer/footer/footer.component';
     ContactComponent,
     LoginComponent,
     SignupComponent,
-    FooterComponent
+    FooterComponent,
+    CardComponent,
+    UserMenuComponent
     
   ],
   imports: [

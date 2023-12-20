@@ -1,0 +1,20 @@
+<div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <img class="rounded-t-lg" src="../../../assets/placeholder.jpg" alt="" />
+    <div class="p-5 flex flex-col items-center">
+        
+            <h5 class="mb-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-black hover:no-underline">{{ menu?.name }}</h5>
+        
+        
+        <div *ngFor="let foodItem of menu?.foodItemList">
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 ">{{ foodItem.name }}</p>
+        </div>
+
+        <a href="#" class="mb-2 inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 hover:no-underline">
+            Mod de preparare
+        </a>
+        
+        <a class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-black bg-red-500 rounded-lg hover:bg-red-600 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-400 dark:hover:bg-red-500 dark:focus:ring-red-800 hover:no-underline">
+            <i class="fas fa-heart"></i> 
+        </a>
+    </div>
+</div>

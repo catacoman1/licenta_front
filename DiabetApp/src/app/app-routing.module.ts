@@ -9,6 +9,7 @@ import { LoginComponent } from './Components/login/login.component';
 import { SignupComponent } from './Components/signup/signup.component';
 
 const routes: Routes = [
+  {path: "", component:LoginComponent},
   {path : "Retete", component: ReteteComponent},
   {path: "Contact", component: ContactComponent},
   {path: "Despre", component: DespreComponent},

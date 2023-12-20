@@ -3,6 +3,7 @@ import { Observable } from "rxjs";
 import { User } from "../Models/User/user";
 import { HttpClient } from "@angular/common/http";
 
+
 @Injectable({
     providedIn: 'root'
 })
@@ -30,4 +31,10 @@ export class UserService {
     public deleteUser(userId: number): Observable<string> {
         return this.http.delete<string>(`${this.apiServerUrl}/${userId}`);
     }
+    public getUserEmail(userId: number): Observable<string> {
+        return this.http.get<string>(`${this.apiServerUrl}/${userId}/email`);
+    }
+
+    
+    
 }
