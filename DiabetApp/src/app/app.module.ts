@@ -19,6 +19,9 @@ import { UserMenuComponent } from './Components/user-menu/user-menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +44,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule
+ 
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
