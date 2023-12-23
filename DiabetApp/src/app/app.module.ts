@@ -16,6 +16,7 @@ import { SignupComponent } from './Components/signup/signup.component';
 import { FooterComponent } from './Components/footer/footer/footer.component';
 import { CardComponent } from './Components/card/card.component';
 import { UserMenuComponent } from './Components/user-menu/user-menu.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { UserMenuComponent } from './Components/user-menu/user-menu.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
