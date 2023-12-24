@@ -1,3 +1,4 @@
+
 import { Component } from '@angular/core';
 
 @Component({
@@ -13,6 +14,8 @@ export class NavBarComponent {
   dropdownOpen: boolean = false;
 
   constructor() {}
+
+  
 
   toggleMobileMenu() {
     this.mobileMenuOpen = !this.mobileMenuOpen;

@@ -24,6 +24,7 @@
     "chart.js": "^4.4.1",
     "flowbite": "^2.2.1",
     "font-awesome": "^4.7.0",
+    "jwt-decode": "^4.0.0",
     "postcss-scss": "^4.0.9",
     "rxjs": "~7.8.0",
     "tailwind": "^4.0.0",

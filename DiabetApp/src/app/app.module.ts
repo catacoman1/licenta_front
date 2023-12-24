@@ -17,7 +17,7 @@ import { FooterComponent } from './Components/footer/footer/footer.component';
 import { CardComponent } from './Components/card/card.component';
 import { UserMenuComponent } from './Components/user-menu/user-menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { jwtDecode } from 'jwt-decode';
 
 
 
@@ -35,7 +35,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SignupComponent,
     FooterComponent,
     CardComponent,
-    UserMenuComponent
+    UserMenuComponent,
+    
     
   ],
   imports: [
@@ -43,7 +44,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    
  
     
   ],

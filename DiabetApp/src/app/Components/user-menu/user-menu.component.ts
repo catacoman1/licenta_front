@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/Service/authentication.service';
 import { UserService } from 'src/app/Service/user.service';
+
 
 
 @Component({
@@ -10,12 +12,26 @@ import { UserService } from 'src/app/Service/user.service';
 export class UserMenuComponent implements OnInit {
 
   dropdownOpen: boolean = false;
+  userName: string = '';
 
-  constructor(private userService: UserService) {}
+  constructor(private authService:AuthService,private userService:UserService) {}
 
   ngOnInit() {
-    // this.userEmail= this.userService.getUserEmail();
+    
+    this.loadUserDetails();
 
+  }
+  loadUserDetails(){
+    const userEmail = this.authService.getUserEmail();
+    if(userEmail)
+    {
+      this.userService.getUserByEmail(userEmail).subscribe(user=>{
+        this.userName=user.first_name;
+      })
+    }
+  }
+  get userEmail(): string|null{
+    return this.authService.getUserEmail();
   }
 
   toggleDropdown() {

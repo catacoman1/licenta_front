@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, inject } from '@angular/core';
 import { FoodItemService } from 'src/app/Service/fooditem.service';
 import { FoodItem } from './../../Models/FoodItem/fooditem';
+
 
 @Component({
   selector: 'app-home',
@@ -8,6 +9,8 @@ import { FoodItem } from './../../Models/FoodItem/fooditem';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+
+
   foodItems: FoodItem[] = []; 
 
   constructor(private foodItemService: FoodItemService) {}
@@ -17,6 +20,7 @@ export class HomeComponent implements OnInit {
       this.foodItems = data;
     }, error => {
       console.error('Error fetching food items', error);
+      
     });
   }
 }

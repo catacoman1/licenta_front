@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { Token } from '@angular/compiler';
+import { jwtDecode } from 'jwt-decode';
+
 
 @Injectable({ providedIn: 'root' }) 
 export class AuthService {
@@ -15,6 +17,9 @@ export class AuthService {
       tap(response => {
         
         localStorage.setItem('token', response.token);
+        const decodedToken= jwtDecode<any>(response.token);
+        localStorage.setItem('userEmail',decodedToken.sub);
+        console.log(response.token);
         
         
       })
@@ -29,6 +34,10 @@ export class AuthService {
   }
   getToken(): string | null {
     return localStorage.getItem('token');
+    
+  }
+  getUserEmail() : string | null {
+    return localStorage.getItem('userEmail');
   }
   
   
