@@ -19,9 +19,6 @@ import { UserMenuComponent } from './Components/user-menu/user-menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { jwtDecode } from 'jwt-decode';
 
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +41,8 @@ import { jwtDecode } from 'jwt-decode';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    BrowserAnimationsModule,
+    BrowserAnimationsModule
+    
     
  
     

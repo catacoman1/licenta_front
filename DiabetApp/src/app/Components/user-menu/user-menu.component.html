@@ -10,7 +10,7 @@
     </button>
   
 
-    <div [hidden]="!dropdownOpen"
+    <div [@dropdown]="dropdownOpen ? 'open' : 'closed'"
       class="absolute z-10 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
       role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button">
       
