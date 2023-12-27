@@ -1,6 +1,6 @@
 import { NgModule, Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -18,6 +18,7 @@ import { CardComponent } from './Components/card/card.component';
 import { UserMenuComponent } from './Components/user-menu/user-menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { jwtDecode } from 'jwt-decode';
+import { AuthInterceptor } from './Interceptor/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,7 @@ import { jwtDecode } from 'jwt-decode';
  
     
   ],
-  providers: [],
+  providers: [ { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
