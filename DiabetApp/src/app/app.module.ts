@@ -20,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { jwtDecode } from 'jwt-decode';
 import { AuthInterceptor } from './Interceptor/auth.interceptor';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,8 @@ import { AuthInterceptor } from './Interceptor/auth.interceptor';
     SignupComponent,
     FooterComponent,
     CardComponent,
-    UserMenuComponent,
+    UserMenuComponent
+    
     
     
   ],
@@ -42,7 +44,8 @@ import { AuthInterceptor } from './Interceptor/auth.interceptor';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    
     
     
  

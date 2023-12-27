@@ -19,7 +19,7 @@ export class AuthService {
         localStorage.setItem('token', response.token);
         const decodedToken= jwtDecode<any>(response.token);
         localStorage.setItem('userEmail',decodedToken.sub);
-        console.log(response.token);
+        // console.log(response.token);
         
         
       })

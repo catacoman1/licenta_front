@@ -2,7 +2,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/Service/authentication.service';
 import { UserService } from 'src/app/Service/user.service';
-
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,11 +17,11 @@ import { UserService } from 'src/app/Service/user.service';
         opacity: '0',
       })),
       state('open', style({
-        height: '*', // Use an asterisk to compute the height automatically
+        height: '*',
         overflow: 'hidden',
         opacity: '1',
       })),
-      transition('closed <=> open', animate('300ms ease-in')), // Adjust timing to your liking
+      transition('closed <=> open', animate('300ms ease-in')), 
     ])
   ]
 })
@@ -30,7 +30,7 @@ export class UserMenuComponent implements OnInit {
   dropdownOpen: boolean = false;
   userName: string = '';
 
-  constructor(private authService:AuthService,private userService:UserService) {}
+  constructor(private authService:AuthService,private userService:UserService, private router:Router) {}
 
   ngOnInit() {
     
@@ -52,5 +52,9 @@ export class UserMenuComponent implements OnInit {
 
   toggleDropdown() {
     this.dropdownOpen = !this.dropdownOpen;
+  }
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/Login']); 
   }
 }
