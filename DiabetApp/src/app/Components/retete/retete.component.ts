@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { menu } from 'src/app/Models/Menu/menu';
+import { AuthService } from 'src/app/Service/authentication.service';
 import { MenuService } from 'src/app/Service/menu.service';
 @Component({
   selector: 'app-retete',
@@ -9,13 +10,20 @@ import { MenuService } from 'src/app/Service/menu.service';
 export class ReteteComponent implements OnInit {
   menus: menu[] = [];
   favorites: menu[] = [];
+  userEmail: string | null = null;
 
-  constructor(private menuService: MenuService) { }
+  constructor(
+    private menuService: MenuService,
+    private authService: AuthService  
+  ) { }
 
   ngOnInit(): void {
     this.menuService.getMenus().subscribe(data => {
       this.menus = data;
     });
+
+    
+    this.userEmail = this.authService.getUserEmail();
   }
 
  
