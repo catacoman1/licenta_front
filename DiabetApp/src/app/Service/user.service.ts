@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
+import { Observable, map } from "rxjs";
 import { User } from "../Models/User/user";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { AuthService } from '../Service/authentication.service'; 
@@ -43,5 +43,12 @@ export class UserService {
 
     public getUserByEmail(email: string): Observable<User> {
         return this.http.get<User>(`${this.apiServerUrl}/email/${email}`, { headers: this.getAuthHeader() });
+    }
+
+    public getUserDiabetByEMail(email: string):Observable<string>{
+        return this.http.get<User>(`${this.apiServerUrl}/email/${email}`, { headers: this.getAuthHeader() })
+        .pipe(
+            map(user=> user.diabet)
+        );
     }
 }
