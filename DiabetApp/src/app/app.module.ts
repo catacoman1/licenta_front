@@ -21,6 +21,7 @@ import { jwtDecode } from 'jwt-decode';
 import { AuthInterceptor } from './Interceptor/auth.interceptor';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +46,7 @@ import { AuthInterceptor } from './Interceptor/auth.interceptor';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
+    
     
     
     

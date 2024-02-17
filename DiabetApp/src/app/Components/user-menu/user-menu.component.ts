@@ -27,8 +27,8 @@ import { Router } from '@angular/router';
 })
 export class UserMenuComponent implements OnInit {
 
-  dropdownOpen: boolean = false;
-  userName: string = '';
+  dropdownOpen = false;
+  userName = '';
 
   constructor(private authService:AuthService,private userService:UserService, private router:Router) {}
 

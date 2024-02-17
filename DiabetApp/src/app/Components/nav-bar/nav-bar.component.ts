@@ -10,8 +10,8 @@ export class NavBarComponent {
  
 
 
-  mobileMenuOpen: boolean = false;
-  dropdownOpen: boolean = false;
+  mobileMenuOpen = false;
+  dropdownOpen = false;
 
   constructor() {}
 

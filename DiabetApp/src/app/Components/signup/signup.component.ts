@@ -8,13 +8,13 @@ import { AuthService } from 'src/app/Service/authentication.service';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent {
-  first_name: string = '';
-  last_name: string = '';
-  email: string = '';
-  password: string = '';
-  diabet: string = '';
-  age: number = 0;
-  errorMessage: string = '';
+  first_name = '';
+  last_name = '';
+  email = '';
+  password = '';
+  diabet = '';
+  age = 0;
+  errorMessage = '';
 
   constructor(private authService: AuthService, private router: Router) {}
 

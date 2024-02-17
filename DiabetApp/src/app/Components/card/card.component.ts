@@ -25,7 +25,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 export class CardComponent {
   @Input() menu?: menu ; 
 
-  showIngredients: boolean = false; 
+  showIngredients = false; 
 
   constructor() {}
 

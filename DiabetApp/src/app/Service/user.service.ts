@@ -41,7 +41,7 @@ export class UserService {
         return this.http.get<string>(`${this.apiServerUrl}/${userId}/email`, { headers: this.getAuthHeader() });
     }
 
-    public getUserByEmail(email: String): Observable<User> {
+    public getUserByEmail(email: string): Observable<User> {
         return this.http.get<User>(`${this.apiServerUrl}/email/${email}`, { headers: this.getAuthHeader() });
     }
 }
