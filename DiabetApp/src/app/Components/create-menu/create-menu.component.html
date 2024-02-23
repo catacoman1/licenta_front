@@ -44,28 +44,34 @@
     </div>
     
   
-    
-    <!-- Placeholder for icons -->
-    <div class="flex justify-center space-x-4 my-8">
+    <div class="flex justify-center space-x-10 my-8">
       <img src="../../../assets/fruit.png" alt="Icon Placeholder" class="h-12">
       <img src="../../../assets/vegetable.png" alt="Icon Placeholder" class="h-12">
       <img src="../../../assets/meat.png" alt="Icon Placeholder" class="h-12">
       <img src="../../../assets/white-bread.png" alt="Icon Placeholder" class="h-12">
       <img src="../../../assets/dairy.png" alt="Icon Placeholder" class="h-12">
       <img src="../../../assets/sweets.png" alt="Icon Placeholder" class="h-12">
-      <!-- ... more icons ... -->
     </div>
     
     <!-- Container for food items -->
     <div class="flex gap-8 px-8 my-8">
       <!-- Container for category-based food items -->
       <div class="flex-1 bg-white shadow-lg rounded-lg p-6">
-        <!-- Dynamically load food items here -->
+
+       <div *ngFor="let foodItem of foodItems" class = "p-2 border-b border-gray-200 cursor-pointer" (click)="onSelectedFoodItem(foodItem)">
+        <h3 class="text-lg text-gray-700">{{ foodItem.name }}</h3>
+       </div> 
+        
       </div>
     
       <!-- Container for additional content -->
       <div class="flex-1 bg-white shadow-lg rounded-lg p-6">
-        <!-- Additional content goes here -->
+        <!-- Display details of the selected food items -->
+        <div *ngFor="let selectedFoodItem of selectedFoodItems; let i = index" class="p-2 border-b border-gray-200">
+          <h3 class="text-xl text-gray-900">{{ selectedFoodItem.name }}</h3>
+          
+          <button type="button" class="text-red-500" (click)="onDeselectFoodItem(i)">Șterge</button>
+        </div>
       </div>
     </div>
     
