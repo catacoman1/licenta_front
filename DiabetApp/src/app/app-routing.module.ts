@@ -7,6 +7,7 @@ import { RaportGlicemieComponent } from './Components/raport-glicemie/raport-gli
 import { HomeComponent } from './Components/home/home.component';
 import { LoginComponent } from './Components/login/login.component';
 import { SignupComponent } from './Components/signup/signup.component';
+import { CreateMenuComponent } from './Components/create-menu/create-menu.component';
 
 const routes: Routes = [
   {path: "", component:LoginComponent},
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path: "RaportGlicemie", component:RaportGlicemieComponent},
   {path: "Home", component:HomeComponent},
   {path: "Login", component:LoginComponent},
-  {path: "Signup", component:SignupComponent}
+  {path: "Signup", component:SignupComponent},
+  {path: "CreateMenu", component:CreateMenuComponent}
 ];
 
 @NgModule({

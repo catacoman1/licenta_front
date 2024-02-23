@@ -19,6 +19,7 @@ import { UserMenuComponent } from './Components/user-menu/user-menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { jwtDecode } from 'jwt-decode';
 import { AuthInterceptor } from './Interceptor/auth.interceptor';
+import { CreateMenuComponent } from './Components/create-menu/create-menu.component';
 
 
 
@@ -35,7 +36,8 @@ import { AuthInterceptor } from './Interceptor/auth.interceptor';
     SignupComponent,
     FooterComponent,
     CardComponent,
-    UserMenuComponent
+    UserMenuComponent,
+    CreateMenuComponent
     
     
     
