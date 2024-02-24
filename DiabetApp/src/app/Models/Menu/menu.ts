@@ -1,7 +1,7 @@
 import { FoodItem } from "../FoodItem/fooditem";
 
 export interface menu{
-    id: number;
+    id?: number;
     name: string;
     foodItemList: FoodItem[];
     img: string;

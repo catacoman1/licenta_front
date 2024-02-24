@@ -33,7 +33,7 @@ export class MenuService {
         return this.http.get<menu>(`${this.apiServerUrl}/${menuId}`, httpOptions);
     }
 
-    public createUser(menu: menu): Observable<menu> {
+    public createMenu(menu: menu): Observable<menu> {
         const httpOptions = this.createHttpOptions();
         return this.http.post<menu>(this.apiServerUrl, menu, httpOptions);
     }
