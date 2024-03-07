@@ -1,38 +1,61 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { menu } from 'src/app/Models/Menu/menu';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { FoodItemService } from 'src/app/Service/fooditem.service';
+import { FoodItem } from 'src/app/Models/FoodItem/fooditem';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css'],
-  animations: [
-    trigger('dropdown', [
-      state('closed', style({
-        height: '0',
-        overflow: 'hidden',
-        opacity: '0',
-      })),
-      state('open', style({
-        height: '*', // Use an asterisk to compute the height automatically
-        overflow: 'hidden',
-        opacity: '1',
-      })),
-      transition('closed <=> open', animate('500ms ease-in-out')), // Adjust timing to your liking
-    ])
-  ]
+
 })
-export class CardComponent {
+export class CardComponent implements OnInit{
+
   @Input() menu?: menu ; 
+  @Input() foodItemId?:number;
+  foodItem? : FoodItem;
+  foodItemsVisible: boolean = false;
+  foodItemsDetails: {[key: number]: FoodItem} = {}; 
 
-  showIngredients = false; 
+  constructor(private foodItemService:FoodItemService){}
 
-  constructor() {}
-
-  
-  toggleIngredients(): void {
-    this.showIngredients = !this.showIngredients;
+  ngOnInit(): void {
+    if (typeof this.foodItemId !== 'undefined') {
+      this.fetchFoodItem(this.foodItemId);
+    }
   }
   
+
+  fetchFoodItem(id: number): Observable<FoodItem> {
+    return this.foodItemService.getFoodItemById(id);
+  }
+
+
+  toggleFoodItemsVisibility(): void {
+    this.foodItemsVisible = !this.foodItemsVisible;
+  
+    
+    if (this.foodItemsVisible && Object.keys(this.foodItemsDetails).length === 0 && this.menu?.foodItemWithQuantities) {
+      this.fetchAndStoreFoodItemDetails();
+    }
+  }
+
+  fetchAndStoreFoodItemDetails(): void {
+    this.menu?.foodItemWithQuantities.forEach(item => {
+      if (item.foodItemId) {
+        this.fetchFoodItem(item.foodItemId).subscribe({
+          next: (foodItem: FoodItem) => {
+            this.foodItemsDetails[item.foodItemId] = foodItem;
+          },
+          error: (error: any) => {
+            console.error("Failed to fetch food item details", error);
+          }
+        });
+      }
+    });
+  }
+
 }
   

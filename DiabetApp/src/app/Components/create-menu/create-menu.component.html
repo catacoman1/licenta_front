@@ -16,8 +16,8 @@
   </div>
   <div class="mx-auto max-w-7xl px-6 lg:px-8">
     <div class="max-w-4xl lg:mx-0 lg:pl-15">
-      <h2 class="text-4xl font-bold tracking-tight text-white sm:text-8xl">Meniul tău </h2>
-      <h3 class="text-4xl font-bold tracking-tight text-white sm:text-4xl">creat de tine, ajustat de noi!</h3>
+      <h2 class="text-4xl font-bold tracking-tight text-white sm:text-8xl" style="font-size: 4rem">Meniul tău </h2>
+      <h3 class="text-4xl font-bold tracking-tight text-white sm:text-4xl" style="font-size: 2rem">creat de tine, ajustat de noi!</h3>
 
     </div>
     <div class="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
@@ -85,13 +85,24 @@
 
     </div>
     <div class="flex-1 bg-white shadow-lg rounded-lg p-6">
+      <div *ngFor="let item of selectedFoodItemsWithQuantities; let i = index" class="p-2 border-b border-gray-200">
+        
+        <div class="flex flex-col sm:flex-row justify-between items-center">
+          <div class="mb-2 sm:mb-0 sm:flex-grow">
+            <h3 class="text-xl text-gray-900">{{ item.foodItem.name }}</h3>
+          </div>
 
-      <div *ngFor="let selectedFoodItem of selectedFoodItems; let i = index" class="p-2 border-b border-gray-200">
-        <h3 class="text-xl text-gray-900" (click)="onDeselectFoodItem(i)">{{ selectedFoodItem.name }}</h3>
-
-        <button type="button" class="text-red-500" (click)="onDeselectFoodItem(i)">Șterge</button>
+          <div class="flex items-center space-x-4">
+            <div class="flex items-center space-x-2">
+              <label for="quantity-{{i}}" class="text-sm">Cantitate:</label>
+              <input type="number" id="quantity-{{i}}" [(ngModel)]="item.quantity" class="border-gray-300 rounded shadow-sm text-sm" min="0" style="width: 70px;">
+            </div>
+            <button type="button" class="text-red-500 text-sm" (click)="onDeselectFoodItem(i)">Șterge</button>
+          </div>
+        </div>
       </div>
     </div>
+    
   </div>
 
 </section>

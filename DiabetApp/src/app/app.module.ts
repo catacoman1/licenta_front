@@ -20,7 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { jwtDecode } from 'jwt-decode';
 import { AuthInterceptor } from './Interceptor/auth.interceptor';
 import { CreateMenuComponent } from './Components/create-menu/create-menu.component';
-
+import { MatCardModule } from '@angular/material/card';
 
 
 @NgModule({
@@ -48,6 +48,7 @@ import { CreateMenuComponent } from './Components/create-menu/create-menu.compon
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
+    MatCardModule
     
     
     

@@ -1,8 +1,9 @@
 import { FoodItem } from "../FoodItem/fooditem";
+import { fooditemwithquantity } from "../FoodItemWithQuantity/fooditemwithquantity";
 
 export interface menu{
     id?: number;
     name: string;
-    foodItemList: FoodItem[];
+    foodItemWithQuantities: fooditemwithquantity[];
     img: string;
 }

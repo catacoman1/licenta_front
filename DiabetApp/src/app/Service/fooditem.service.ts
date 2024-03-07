@@ -36,4 +36,8 @@ export class FoodItemService {
     public deleteFoodItem(FoodItemId: number): Observable<string> {
         return this.http.delete<string>(`${this.apiServerUrl}/${FoodItemId}`, { headers: this.getAuthHeader() });
     }
+
+    public getFoodItemByCategory(Category: string):Observable<FoodItem>{
+        return this.http.get<FoodItem>(`${this.apiServerUrl}/category/${Category}`, { headers: this.getAuthHeader() });
+    }
 }

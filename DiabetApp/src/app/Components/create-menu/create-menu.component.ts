@@ -4,16 +4,26 @@ import { FoodItem } from 'src/app/Models/FoodItem/fooditem';
 import { MenuService } from 'src/app/Service/menu.service';
 import { menu } from 'src/app/Models/Menu/menu';
 
+interface SelectedFoodItemWithQuantity{
+  foodItem:FoodItem;
+  quantity: number;
+}
+
 @Component({
   selector: 'app-create-menu',
   templateUrl: './create-menu.component.html',
   styleUrls: ['./create-menu.component.css']
 })
+
 export class CreateMenuComponent implements OnInit {
 
   foodItems: FoodItem[] = [];
   selectedFoodItems: FoodItem[] = [];
   menuName: string = '';
+  selectedFoodItemsWithQuantities: SelectedFoodItemWithQuantity[] = [];
+
+
+ 
 
   constructor(
     private foodItemService: FoodItemService,
@@ -27,8 +37,8 @@ export class CreateMenuComponent implements OnInit {
   }
 
   onSelectedFoodItem(item: FoodItem): void {
-    if (!this.selectedFoodItems.find(f => f.id === item.id)) {
-      this.selectedFoodItems.push(item);
+    if (!this.selectedFoodItemsWithQuantities.find(f => f.foodItem.id === item.id)) {
+      this.selectedFoodItemsWithQuantities.push({ foodItem:item, quantity: 1});
     }
     else {
       alert('Ați selectat deja acest aliment!');
@@ -37,14 +47,13 @@ export class CreateMenuComponent implements OnInit {
   }
 
   onDeselectFoodItem(index: number): void {
-    this.selectedFoodItems.splice(index, 1);
+    this.selectedFoodItemsWithQuantities.splice(index, 1);
   }
 
-  onRemoveFoodItem(item: FoodItem): void {
-    const index = this.selectedFoodItems.indexOf(item);
-    if (index > -1) {
-      this.selectedFoodItems.splice(index, 1);
-    }
+  onRemoveFoodItem(index: number): void {
+    
+      this.selectedFoodItemsWithQuantities.splice(index, 1);
+    
   }
 
   onSaveMenu(): void {
@@ -52,17 +61,29 @@ export class CreateMenuComponent implements OnInit {
       alert('Introduceți un nume pentru meniul dumneavoastră!');
       return;
     }
-    const newMenu: menu = {
+    const newMenu = {
       name: this.menuName,
-      foodItemList: this.selectedFoodItems,
-      img: 'https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png'
+      foodItemWithQuantities: this.selectedFoodItemsWithQuantities.map(item => ({
+        foodItemId: item.foodItem.id,
+        quantity: item.quantity
+      })),
+      img: 'https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png' 
     };
-    this.menuService.createMenu(newMenu).subscribe(savedMenu => {
-      this.selectedFoodItems = [];
-      this.menuName = '';
-      alert('Meniu creat cu succes!');
-    }
-    )
+  
+    
+    this.menuService.createMenu(newMenu).subscribe({
+      next: (savedMenu) => {
+        
+        this.selectedFoodItemsWithQuantities = [];
+        this.menuName = '';
+        alert('Meniu creat cu succes!');
+      },
+      error: (error) => {
+        console.error('Error saving menu', error);
+        alert('Eroare la salvarea meniului.');
+      }
+    });
   }
+  
 
 }
