@@ -6,4 +6,5 @@ export interface menu{
     name: string;
     foodItemWithQuantities: fooditemwithquantity[];
     img: string;
+    sg: number;
 }

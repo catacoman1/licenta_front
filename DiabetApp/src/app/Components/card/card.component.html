@@ -6,14 +6,19 @@
   <mat-card-content class="flex justify-center text-center pt-4">
     <h2 class="text-gray-800 mb-2">
       {{ menu?.name }}
+      
     </h2>
     
     <div *ngIf="foodItemsVisible">
       <div *ngFor="let item of menu?.foodItemWithQuantities; let i = index">
         <p class="text-gray-800 dark:text-gray-300">
-          {{ foodItemsDetails[item.foodItemId].name }} - Cantitate: {{ item.quantity }}g 
+          {{ foodItemsDetails[item.foodItemId].name }} - Cantitate: {{ item.quantity }}g
+          
         </p>
       </div>
+      <p class="text-gray-800 dark:text-gray-300">
+      Sarcina Glicemica: {{menu?.sg}}
+      </p>
     </div>
   </mat-card-content>
   

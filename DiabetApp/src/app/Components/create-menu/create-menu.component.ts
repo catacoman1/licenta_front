@@ -21,9 +21,9 @@ export class CreateMenuComponent implements OnInit {
   selectedFoodItems: FoodItem[] = [];
   menuName: string = '';
   selectedFoodItemsWithQuantities: SelectedFoodItemWithQuantity[] = [];
-
-
- 
+  categories: string[] = ['fruits','vegetables','dairy','bread','sweets','meat'];
+  selectedCateogry: string = '';
+  SG: number = 0;
 
   constructor(
     private foodItemService: FoodItemService,
@@ -67,7 +67,8 @@ export class CreateMenuComponent implements OnInit {
         foodItemId: item.foodItem.id,
         quantity: item.quantity
       })),
-      img: 'https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png' 
+      img: 'https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png' ,
+      sg: this.SG
     };
   
     
@@ -81,6 +82,19 @@ export class CreateMenuComponent implements OnInit {
       error: (error) => {
         console.error('Error saving menu', error);
         alert('Eroare la salvarea meniului.');
+      }
+    });
+  }
+
+  filterFoodItemsByCategory(category: string): void {
+    this.selectedCateogry = category;
+    this.foodItemService.getFoodItemByCategory(category).subscribe({
+      next: (items) => {
+        this.foodItems = items;
+      },
+      error: (error) => {
+        console.error('Error fetching food items by category', error);
+        
       }
     });
   }
