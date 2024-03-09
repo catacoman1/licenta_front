@@ -23,6 +23,7 @@ import { CreateMenuComponent } from './Components/create-menu/create-menu.compon
 import { MatCardModule } from '@angular/material/card';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,8 +49,8 @@ import { MatCardModule } from '@angular/material/card';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatCardModule
-    
+    MatCardModule,
+   
     
     
     

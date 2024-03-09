@@ -6,25 +6,51 @@ import { Component } from '@angular/core';
   styleUrls: ['./raport-glicemie.component.css']
 })
 export class RaportGlicemieComponent {
-  public data: Object[];
-  constructor()
-  {
-    this.data=[
-      { month: "Jan", glicemie:200},
-      { month: "Feb", glicemie:210},
-      { month: "Mar", glicemie:190},
-      { month: "Apr", glicemie:185},
-      { month: "May", glicemie:230},
-      { month: "Jun", glicemie:240},
-      { month: "Jul", glicemie:225},
-      { month: "Aug", glicemie:230},
-      { month: "Sep", glicemie:210},
-      { month: "Oct", glicemie:200},
-      { month: "Nov", glicemie:190},
-      { month: "Dec", glicemie:200}
-      
-    ];
 
+  data:any;
+  basicOptions:any;
+
+  constructor() {
+    this.data = {
+      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      datasets: [
+        {
+          label: 'Glicemie',
+          data: [65, 59, 80, 81, 56, 55, 40],
+          fill: false,
+          borderColor: '#42A5F5',
+          tension: 0.4
+        }
+      ]
+    };
+
+    this.basicOptions = {
+      plugins: {
+        legend: {
+          labels: {
+            color: '#495057'
+          }
+        }
+      },
+      scales: {
+        x: {
+          ticks: {
+            color: '#495057'
+          },
+          grid: {
+            color: '#ebedef'
+          }
+        },
+        y: {
+          ticks: {
+            color: '#495057'
+          },
+          grid: {
+            color: '#ebedef'
+          }
+        }
+      }
+    };
   }
-
+  
 }

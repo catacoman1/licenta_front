@@ -13,11 +13,11 @@
       <div *ngFor="let item of menu?.foodItemWithQuantities; let i = index">
         <p class="text-gray-800 dark:text-gray-300">
           {{ foodItemsDetails[item.foodItemId].name }} - Cantitate: {{ item.quantity }}g
-          
+        
         </p>
       </div>
-      <p class="text-gray-800 dark:text-gray-300">
-      Sarcina Glicemica: {{menu?.sg}}
+      <p class="text-gray-800 dark:text-gray-300 " [ngStyle]="{'color': getSgColor(menu?.sg)}">
+        Sarcina Glicemica: {{menu?.sg}}
       </p>
     </div>
   </mat-card-content>

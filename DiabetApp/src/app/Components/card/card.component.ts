@@ -57,5 +57,21 @@ export class CardComponent implements OnInit{
     });
   }
 
+  getSgColor(sg?: number): string {
+    if (sg !== undefined) {
+      if (sg < 300) {
+        return 'green';
+      } else if (sg >= 300 && sg <= 500) {
+        return '#FCD12A';
+      } else if (sg > 500) {
+        return 'red';
+      }
+    }
+    return 'inherit';
+  }
+
+  
 }
+
+
   
