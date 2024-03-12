@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FoodItem } from 'src/app/Models/FoodItem/fooditem';
 import { MenuService } from 'src/app/Service/menu.service';
 import { menu } from 'src/app/Models/Menu/menu';
+import { MessageService } from 'primeng/api';
 
 interface SelectedFoodItemWithQuantity{
   foodItem:FoodItem;
@@ -12,7 +13,8 @@ interface SelectedFoodItemWithQuantity{
 @Component({
   selector: 'app-create-menu',
   templateUrl: './create-menu.component.html',
-  styleUrls: ['./create-menu.component.css']
+  styleUrls: ['./create-menu.component.css'],
+  providers: [MessageService]
 })
 
 export class CreateMenuComponent implements OnInit {
@@ -26,6 +28,7 @@ export class CreateMenuComponent implements OnInit {
   SG: number = 0;
 
   constructor(
+    private messageService : MessageService,
     private foodItemService: FoodItemService,
     private menuService: MenuService
   ) { }
@@ -35,13 +38,28 @@ export class CreateMenuComponent implements OnInit {
       this.foodItems = items;
     });
   }
+  showSuccess() {
+    this.messageService.add({severity:'success', summary: 'Success', detail: 'Meniu salvat cu succes!'});
+  }
+
+  showErrorSalvare() {
+    this.messageService.add({severity:'error', summary: 'Error', detail: 'Eroare la salvarea meniului'});
+  }
+
+  showErrorSelectare() {
+    this.messageService.add({severity:'error', summary: 'Error', detail: 'Ați selectat deja acest aliment!'});
+  }
+
+  showErrorNumeMeniu() {
+    this.messageService.add({severity:'error', summary: 'Error', detail: 'Nu ați selectat un nume pentru meniul dumneavoastră!'});
+  }
 
   onSelectedFoodItem(item: FoodItem): void {
     if (!this.selectedFoodItemsWithQuantities.find(f => f.foodItem.id === item.id)) {
       this.selectedFoodItemsWithQuantities.push({ foodItem:item, quantity: 1});
     }
     else {
-      alert('Ați selectat deja acest aliment!');
+      this.showErrorSelectare();
     }
 
   }
@@ -58,7 +76,7 @@ export class CreateMenuComponent implements OnInit {
 
   onSaveMenu(): void {
     if (!this.menuName.trim()) {
-      alert('Introduceți un nume pentru meniul dumneavoastră!');
+      this.showErrorNumeMeniu();
       return;
     }
     const newMenu = {
@@ -77,11 +95,11 @@ export class CreateMenuComponent implements OnInit {
         
         this.selectedFoodItemsWithQuantities = [];
         this.menuName = '';
-        alert('Meniu creat cu succes!');
+        this.showSuccess();
       },
       error: (error) => {
         console.error('Error saving menu', error);
-        alert('Eroare la salvarea meniului.');
+        this.showErrorSalvare();
       }
     });
   }

@@ -1,13 +1,15 @@
 import { AuthService } from './../../Service/authentication.service';
 import { Component } from '@angular/core';
 import { jwtDecode } from 'jwt-decode';
+import { MessageService } from 'primeng/api';
 import { glicemie } from 'src/app/Models/Menu/glicemie';
 import { UserService } from 'src/app/Service/user.service';
 
 @Component({
   selector: 'app-raport-glicemie',
   templateUrl: './raport-glicemie.component.html',
-  styleUrls: ['./raport-glicemie.component.css']
+  styleUrls: ['./raport-glicemie.component.css'],
+  providers: [MessageService]
 })
 export class RaportGlicemieComponent {
 
@@ -17,12 +19,23 @@ export class RaportGlicemieComponent {
   glicemieValue: number = 0;
   glicemieDate: string | null = null;
 
-  constructor(private userService: UserService, private authService: AuthService) { }
+  glicemieData: glicemie[] = [];
+
+  constructor(private messageService: MessageService, private userService: UserService, private authService: AuthService) { }
+
 
   ngOnInit() {
     this.initializeChartOptions();
     this.loadGlicemieData();
 
+  }
+
+  showSuccess() {
+    this.messageService.add({severity:'success', summary: 'Success', detail: 'Glicemie salvată cu succes!'});
+  }
+
+  showError() {
+    this.messageService.add({severity:'error', summary: 'Error', detail: 'Eroare la salvarea glicemiei'});
   }
 
   initializeChartOptions() {
@@ -74,6 +87,8 @@ export class RaportGlicemieComponent {
                 return new Date(a.date).getTime() - new Date(b.date).getTime();
               });
 
+              this.glicemieData = glicemieData;
+
 
               const labels = glicemieData.map(g => g.date ? new Date(g.date).toLocaleDateString() : 'Unknown Date');
               const dataValues = glicemieData.map(g => g.value);
@@ -117,10 +132,12 @@ export class RaportGlicemieComponent {
           };
           this.userService.createGlicemie(user.id, newGlicemie).subscribe({
             next: (savedGlicemie) => {
-              console.log('Glicemie saved:', savedGlicemie);
+              this.showSuccess();
               this.loadGlicemieData();
             },
-            error: (error) => console.error('Error saving glicemie', error)
+            error: (error) => {
+              this.showError();
+            }
           });
         },
         error: (error) => console.error('Error fetching user by email', error)

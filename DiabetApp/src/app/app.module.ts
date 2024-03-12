@@ -2,7 +2,7 @@ import { NgModule, Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-
+import {ToastModule} from 'primeng/toast'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './Components/home/home.component';
@@ -22,6 +22,7 @@ import { AuthInterceptor } from './Interceptor/auth.interceptor';
 import { CreateMenuComponent } from './Components/create-menu/create-menu.component';
 import { MatCardModule } from '@angular/material/card';
 import { ChartModule } from 'primeng/chart';
+import {TableModule} from 'primeng/table'
 
 
 
@@ -51,7 +52,9 @@ import { ChartModule } from 'primeng/chart';
     FormsModule,
     BrowserAnimationsModule,
     MatCardModule,
-    ChartModule
+    ChartModule,
+    ToastModule,
+    TableModule
    
     
     
