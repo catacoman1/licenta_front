@@ -21,6 +21,7 @@ import { jwtDecode } from 'jwt-decode';
 import { AuthInterceptor } from './Interceptor/auth.interceptor';
 import { CreateMenuComponent } from './Components/create-menu/create-menu.component';
 import { MatCardModule } from '@angular/material/card';
+import { ChartModule } from 'primeng/chart';
 
 
 
@@ -50,6 +51,7 @@ import { MatCardModule } from '@angular/material/card';
     FormsModule,
     BrowserAnimationsModule,
     MatCardModule,
+    ChartModule
    
     
     

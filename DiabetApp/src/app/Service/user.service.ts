@@ -3,6 +3,7 @@ import { Observable, map } from "rxjs";
 import { User } from "../Models/User/user";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { AuthService } from '../Service/authentication.service'; 
+import { glicemie } from "../Models/Menu/glicemie";
 
 @Injectable({
     providedIn: 'root'
@@ -51,4 +52,10 @@ export class UserService {
             map(user=> user.diabet)
         );
     }
+    public getGlicemieByUserId(userId: number):Observable<glicemie[]>{
+        return this.http.get<glicemie[]>(`${this.apiServerUrl}/${userId}/glicemie`, { headers: this.getAuthHeader() });
+    }
+    public createGlicemie(userId: number, glicemie: glicemie): Observable<glicemie> {
+        return this.http.post<glicemie>(`${this.apiServerUrl}/${userId}/glicemie`, glicemie, { headers: this.getAuthHeader() });
+      }
 }
