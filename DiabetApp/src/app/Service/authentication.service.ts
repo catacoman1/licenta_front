@@ -19,6 +19,7 @@ export class AuthService {
         localStorage.setItem('token', response.token);
         const decodedToken= jwtDecode<any>(response.token);
         localStorage.setItem('userEmail',decodedToken.sub);
+        localStorage.setItem('userRoles', decodedToken.roles);
         // console.log(response.token);
         
         
@@ -30,6 +31,8 @@ export class AuthService {
   }
   logout(): void {
     localStorage.removeItem('token');
+    localStorage.removeItem('userEmail');
+    localStorage.removeItem('userRoles');
     
   }
   getToken(): string | null {
@@ -38,6 +41,12 @@ export class AuthService {
   }
   getUserEmail() : string | null {
     return localStorage.getItem('userEmail');
+  }
+
+  hasRole(requiredRole: string): boolean {
+    const roles = localStorage.getItem('userRoles');
+    // Assuming roles are stored as a single string, you might need to adjust based on how you store them
+    return roles ? roles.split(',').includes(requiredRole) : false;
   }
   
   

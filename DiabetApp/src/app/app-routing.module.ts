@@ -8,6 +8,8 @@ import { HomeComponent } from './Components/home/home.component';
 import { LoginComponent } from './Components/login/login.component';
 import { SignupComponent } from './Components/signup/signup.component';
 import { CreateMenuComponent } from './Components/create-menu/create-menu.component';
+import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dashboard.component';
+import { AdminAuthGuard } from './Service/auth/admin-auth.guard';
 
 const routes: Routes = [
   {path: "", component:LoginComponent},
@@ -18,7 +20,8 @@ const routes: Routes = [
   {path: "Home", component:HomeComponent},
   {path: "Login", component:LoginComponent},
   {path: "Signup", component:SignupComponent},
-  {path: "CreateMenu", component:CreateMenuComponent}
+  {path: "CreateMenu", component:CreateMenuComponent},
+  {path: "Admin", component:AdminDashboardComponent, canActivate:[AdminAuthGuard]}
 ];
 
 @NgModule({

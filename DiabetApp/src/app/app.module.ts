@@ -22,7 +22,8 @@ import { AuthInterceptor } from './Interceptor/auth.interceptor';
 import { CreateMenuComponent } from './Components/create-menu/create-menu.component';
 import { MatCardModule } from '@angular/material/card';
 import { ChartModule } from 'primeng/chart';
-import {TableModule} from 'primeng/table'
+import {TableModule} from 'primeng/table';
+import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dashboard.component'
 
 
 
@@ -40,7 +41,8 @@ import {TableModule} from 'primeng/table'
     FooterComponent,
     CardComponent,
     UserMenuComponent,
-    CreateMenuComponent
+    CreateMenuComponent,
+    AdminDashboardComponent
     
     
     
