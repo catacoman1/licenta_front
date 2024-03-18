@@ -25,7 +25,7 @@ export class FoodItemService {
         return this.http.get<FoodItem>(`${this.apiServerUrl}/${FoodItemId}`, { headers: this.getAuthHeader() });
     }
 
-    public createFoodItem(FoodItem: FoodItem): Observable<FoodItem> {
+    public createFoodItem(FoodItem:Omit <FoodItem,'id'>): Observable<FoodItem> {
         return this.http.post<FoodItem>(this.apiServerUrl, FoodItem, { headers: this.getAuthHeader() });
     }
 

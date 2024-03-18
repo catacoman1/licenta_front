@@ -1,7 +1,7 @@
 import { NgModule, Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {ToastModule} from 'primeng/toast'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,8 +24,7 @@ import { MatCardModule } from '@angular/material/card';
 import { ChartModule } from 'primeng/chart';
 import {TableModule} from 'primeng/table';
 import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dashboard.component'
-
-
+import { Button, ButtonModule } from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -56,7 +55,9 @@ import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dash
     MatCardModule,
     ChartModule,
     ToastModule,
-    TableModule
+    TableModule,
+    ButtonModule,
+    ReactiveFormsModule
    
     
     

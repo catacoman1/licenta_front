@@ -25,8 +25,8 @@ export class NutrientService {
         return this.http.get<nutrient>(`${this.apiServerUrl}/${nutrientId}`, { headers: this.getAuthHeader() });
     }
 
-    public createNutrient(nutrient: nutrient): Observable<nutrient> {
-        return this.http.post<nutrient>(this.apiServerUrl, nutrient, { headers: this.getAuthHeader() });
+    public createNutrient(nutrientData: Omit<nutrient, 'id' | 'foodItem'>): Observable<nutrient> {
+        return this.http.post<nutrient>(this.apiServerUrl, nutrientData, { headers: this.getAuthHeader() });
     }
 
     public updateNutrient(nutrientId: number, nutrient: nutrient): Observable<nutrient> {

@@ -5,6 +5,7 @@ export interface FoodItem{
     id: number;
     name: string;
     calories: number;
+    category:string;
     menuList: menu[]; 
     nutrient: nutrient; 
 }

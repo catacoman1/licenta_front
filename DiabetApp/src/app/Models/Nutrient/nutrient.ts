@@ -8,4 +8,5 @@ export interface nutrient{
     fibers: number;
     vitamins: number;
     foodItem: FoodItem;
+    IG: number;
 }
