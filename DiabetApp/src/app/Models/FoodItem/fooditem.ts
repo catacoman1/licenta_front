@@ -8,4 +8,5 @@ export interface FoodItem{
     category:string;
     menuList: menu[]; 
     nutrient: nutrient; 
+    IG: number;
 }

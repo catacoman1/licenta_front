@@ -104,7 +104,8 @@ export class AdminDashboardComponent {
             calories: this.foodItemForm.value.calories,
             category: this.foodItemForm.value.category,
             nutrient: nutrientResponse,
-            menuList: []
+            menuList: [],
+            IG:this.foodItemForm.value.IG
             
             
           };
