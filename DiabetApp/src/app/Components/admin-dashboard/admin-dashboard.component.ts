@@ -93,7 +93,7 @@ export class AdminDashboardComponent {
         fats: this.foodItemForm.value.fats,
         fibers: this.foodItemForm.value.fibers,
         vitamins: this.foodItemForm.value.vitamins,
-        IG: this.foodItemForm.value.IG
+        ig: this.foodItemForm.value.IG
       };
   
       this.nutrientService.createNutrient(nutrientData).subscribe({
@@ -105,7 +105,7 @@ export class AdminDashboardComponent {
             category: this.foodItemForm.value.category,
             nutrient: nutrientResponse,
             menuList: [],
-            IG:this.foodItemForm.value.IG
+            //IG:this.foodItemForm.value.IG
             
             
           };
@@ -114,17 +114,17 @@ export class AdminDashboardComponent {
           this.fooditemService.createFoodItem(foodItemData).subscribe({
             next: (foodItemResponse) => {
               console.log('Food item created:', foodItemResponse);
-              // Handle success, e.g., closing the form and refreshing the list
+              
             },
             error: (error) => {
               console.error('Error creating food item:', error);
-              // Handle error, e.g., displaying an error message
+              
             }
           });
         },
         error: (error) => {
           console.error('Error creating nutrient:', error);
-          // Handle error, e.g., displaying an error message
+         
         }
       });
     }
@@ -145,19 +145,17 @@ export class AdminDashboardComponent {
   
       this.menuService.createMenu(menuData).subscribe({
         next: (menu) => {
-          // Handle successful menu creation
-          // Reset the form or navigate the user to a different page
           this.showMenuForm = false;
           this.menuForm.reset();
-          // You may want to re-initialize the foodItemsFormArray here as well
+          
           while (this.foodItemsFormArray.length) {
             this.foodItemsFormArray.removeAt(0);
           }
-          // Load menus to update the list
+         
           this.loadMenus();
         },
         error: (error) => {
-          // Handle error
+          
           console.error('Error creating menu:', error);
         }
       });

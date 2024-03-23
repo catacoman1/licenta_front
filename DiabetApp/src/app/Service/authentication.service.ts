@@ -20,6 +20,7 @@ export class AuthService {
         const decodedToken= jwtDecode<any>(response.token);
         localStorage.setItem('userEmail',decodedToken.sub);
         localStorage.setItem('userRoles', decodedToken.roles);
+        localStorage.setItem('id',decodedToken.id);
         // console.log(response.token);
         
         
@@ -33,6 +34,7 @@ export class AuthService {
     localStorage.removeItem('token');
     localStorage.removeItem('userEmail');
     localStorage.removeItem('userRoles');
+    localStorage.removeItem('id');
     
   }
   getToken(): string | null {
@@ -41,6 +43,10 @@ export class AuthService {
   }
   getUserEmail() : string | null {
     return localStorage.getItem('userEmail');
+  }
+
+  getUserId(): string | null { 
+    return localStorage.getItem('id');
   }
 
   hasRole(requiredRole: string): boolean {

@@ -20,6 +20,14 @@
         Sarcina Glicemica: {{menu?.sg}}
       </p>
     </div>
+    <div *ngIf="recommendationsLoaded">
+      <h3>Recommendations</h3>
+      <ul>
+        <li *ngFor="let recommendation of swapRecommendations">
+          {{ recommendation.name }} - Category: {{ recommendation.category }}
+        </li>
+      </ul>
+    </div>
   </mat-card-content>
   
   <mat-card-actions class="flex justify-center mb-2">
@@ -27,4 +35,8 @@
       Listă de ingrediente
     </button>
   </mat-card-actions>
+
+  
+
+
 </mat-card>

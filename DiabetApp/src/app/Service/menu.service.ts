@@ -3,6 +3,7 @@ import { Observable } from "rxjs";
 import { menu } from "../Models/Menu/menu";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { AuthService } from '../Service/authentication.service'; 
+import {FoodItemSwap} from '../Models/FoodItem/fooditemswap';
 
 @Injectable({
     providedIn: 'root'
@@ -46,5 +47,9 @@ export class MenuService {
     public deleteMenu(menuId: number): Observable<string> {
         const httpOptions = this.createHttpOptions();
         return this.http.delete<string>(`${this.apiServerUrl}/${menuId}`, httpOptions);
+    }
+    public getSwapRecommendations(userId:number, menuId:number):Observable<FoodItemSwap[]>{
+        const httpOptions = this.createHttpOptions();
+        return this.http.get<FoodItemSwap[]>(`${this.apiServerUrl}/${menuId}/swap/${userId}`,httpOptions);
     }
 }

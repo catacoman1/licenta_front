@@ -1,8 +1,9 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { FoodItem } from "../Models/FoodItem/fooditem";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { AuthService } from '../Service/authentication.service'; 
+import { FoodItemSwap } from "../Models/FoodItem/fooditemswap";
 
 @Injectable({
     providedIn: 'root'
@@ -39,5 +40,16 @@ export class FoodItemService {
 
     public getFoodItemByCategory(Category: string):Observable<FoodItem[]>{
         return this.http.get<FoodItem[]>(`${this.apiServerUrl}/category/${Category}`, { headers: this.getAuthHeader() });
+    }
+
+    public getLowerIgAlternatives(category:string, ig:number):Observable<FoodItemSwap[]>{
+        return this.http.get<FoodItemSwap[]>(`${this.apiServerUrl}/lower-ig`,
+        {
+            params: new HttpParams()
+            .set('category', category)
+            .set('ig',ig.toString()),
+            headers:this.getAuthHeader()
+        }
+        );
     }
 }

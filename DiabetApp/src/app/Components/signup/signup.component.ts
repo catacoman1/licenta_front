@@ -15,6 +15,7 @@ export class SignupComponent {
   diabet = '';
   age = 0;
   errorMessage = '';
+  role="USER";
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -32,7 +33,9 @@ export class SignupComponent {
       email: this.email,
       password: this.password,
       diabet: this.diabet,
-      age: this.age
+      age: this.age,
+      role: this.role = "USER"
+    
     };
   
     this.authService.signUp(user).subscribe({

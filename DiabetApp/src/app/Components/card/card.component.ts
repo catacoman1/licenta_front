@@ -4,6 +4,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 import { FoodItemService } from 'src/app/Service/fooditem.service';
 import { FoodItem } from 'src/app/Models/FoodItem/fooditem';
 import { Observable } from 'rxjs';
+import { FoodItemSwap } from 'src/app/Models/FoodItem/fooditemswap';
 
 @Component({
   selector: 'app-card',
@@ -15,9 +16,14 @@ export class CardComponent implements OnInit{
 
   @Input() menu?: menu ; 
   @Input() foodItemId?:number;
+  @Input() menuid? : number;
   foodItem? : FoodItem;
   foodItemsVisible: boolean = false;
   foodItemsDetails: {[key: number]: FoodItem} = {}; 
+
+  recommendationsLoaded: boolean = false;
+  swapRecommendations: FoodItemSwap[] = [];
+
 
   constructor(private foodItemService:FoodItemService){}
 
@@ -25,6 +31,8 @@ export class CardComponent implements OnInit{
     if (typeof this.foodItemId !== 'undefined') {
       this.fetchFoodItem(this.foodItemId);
     }
+    
+
   }
   
 
@@ -47,6 +55,7 @@ export class CardComponent implements OnInit{
       if (item.foodItemId) {
         this.fetchFoodItem(item.foodItemId).subscribe({
           next: (foodItem: FoodItem) => {
+            console.log(`Food item details for ${item.foodItemId}:`, foodItem);
             this.foodItemsDetails[item.foodItemId] = foodItem;
           },
           error: (error: any) => {
