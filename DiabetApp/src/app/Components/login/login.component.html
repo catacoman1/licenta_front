@@ -1,19 +1,38 @@
-<form class="form-box" (ngSubmit)="login()">
-  <div class="form-group pb-3">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control rounded" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" [(ngModel)]="email" name="email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+<div class="pt-5 pb-5 flex justify-center shadow-lg">
+<div class="flex min-h-screen bg-blue-100">
+ 
+  <div class="w-1/2 bg-gray-500 flex flex-col justify-center items-center p-8 bg-cover bg-center" style="background-image: url('../../../assets/background-gri.jpeg');">
+    
+    <img src="../../../assets/logo.png" alt="" class="w-24 h-24">
+    <h2 class="text-4xl text-white font-bold mb-2">Bun venit!</h2>
+    <p class="text-white text-base text-center">
+      Vă rugăm introduceți în partea dreaptă datele pentru autentificare. <br><br>
+      În caz ca nu aveți un cont, vă puteți crea unul apăsând butonul Înregistrare.
+    </p>
+ 
   </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Your password</label>
-    <input type="password" class="form-control rounded" id="exampleInputPassword1" placeholder="Password" [(ngModel)]="password" name="password">
-  </div>
-  <div class="form-group login pt-40">
-    <button type="submit" class="btn btn-primary bg-black">Log In</button>
 
-    <button type="button" class="btn btn-secondary" (click)="signup()">Sign Up</button>
+  <div class="w-1/2 flex flex-col justify-between">
+    <form class="w-full h-full bg-white p-5 shadow-lg" (ngSubmit)="login()">
+     
+      <div class="mb-6 pt-40">
+        <label for="exampleInputEmail1" class="block mb-2 text-sm font-medium text-gray-700">Adresa email</label>
+        <input type="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Introduceți adresa de email"
+               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-black-500 focus:border-black-500 block w-full p-2.5"
+               [(ngModel)]="email" name="email">
+      </div>
+      <div class="mb-6">
+        <label for="exampleInputPassword1" class="block mb-2 text-sm font-medium text-gray-700">Parola</label>
+        <input type="password" id="exampleInputPassword1" placeholder="Parola"
+               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-black-500 focus:border-black-500 block w-full p-2.5"
+               [(ngModel)]="password" name="password">
+      </div>
+      <div class="flex flex-col gap-3 pt-5">
+        <button type="submit" class="bg-black text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center">Autentificare</button>
+        <button type="button" class="bg-gray-600 text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center" (click)="signup()">Înregistrare</button>
+      </div>
+    </form>
   </div>
-  <div *ngIf="errorMessage" class="alert alert-danger">
-    {{errorMessage}}
-  </div>
-</form>
+</div>
+</div>
+<p-toast></p-toast>

@@ -25,6 +25,7 @@ import { ChartModule } from 'primeng/chart';
 import {TableModule} from 'primeng/table';
 import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dashboard.component'
 import { Button, ButtonModule } from 'primeng/button';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { Button, ButtonModule } from 'primeng/button';
  
     
   ],
-  providers: [ { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
+  providers: [ { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }], 
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

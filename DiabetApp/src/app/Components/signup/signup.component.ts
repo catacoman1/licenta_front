@@ -1,11 +1,14 @@
+import { MessageService } from 'primeng/api';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/Service/authentication.service';
+import { Message } from 'postcss';
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  styleUrls: ['./signup.component.css'],
+  providers: [MessageService]
 })
 export class SignupComponent {
   first_name = '';
@@ -17,7 +20,7 @@ export class SignupComponent {
   errorMessage = '';
   role="USER";
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router, private messageService: MessageService) {}
 
   
   signup(): void {
@@ -50,10 +53,13 @@ export class SignupComponent {
         } else if (error && error.message) {
           this.errorMessage = error.message;
         } else {
-          this.errorMessage = 'An error occurred during sign-up.';
+          this.showErrorInregistrare()
         }
       }
     });
+  }
+  showErrorInregistrare() {
+    this.messageService.add({severity:'error', summary: 'Error', detail: 'Eroare la înregistrare'});
   }
   
 }
