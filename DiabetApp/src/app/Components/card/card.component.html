@@ -29,12 +29,19 @@
       </ul>
     </div>
   </mat-card-content>
-  
-  <mat-card-actions class="flex justify-center mb-2">
+ 
+  <mat-card-actions class="flex justify-center">
+    <div class="flex flex-col items-center justify-center mb-2 ">
     <button mat-button class="bg-gray-700 hover:bg-gray-900 text-white py-2 px-4 rounded" (click)="toggleFoodItemsVisibility()">
       Listă de ingrediente
     </button>
+    <br>
+    <button mat-button class=" py-2 px-4 rounded" (click)="addMenuToFavorites()">
+      <img src="../../../assets/heart.png" class="h-7 w-7">
+    </button>
+  </div>
   </mat-card-actions>
+
 
   
 

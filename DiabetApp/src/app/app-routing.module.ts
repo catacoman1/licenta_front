@@ -10,6 +10,7 @@ import { SignupComponent } from './Components/signup/signup.component';
 import { CreateMenuComponent } from './Components/create-menu/create-menu.component';
 import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dashboard.component';
 import { AdminAuthGuard } from './Service/auth/admin-auth.guard';
+import { FavoritesComponent } from './Components/favorites/favorites.component';
 
 const routes: Routes = [
   {path: "", component:LoginComponent},
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path: "Login", component:LoginComponent},
   {path: "Signup", component:SignupComponent},
   {path: "CreateMenu", component:CreateMenuComponent},
-  {path: "Admin", component:AdminDashboardComponent, canActivate:[AdminAuthGuard]}
+  {path: "Admin", component:AdminDashboardComponent, canActivate:[AdminAuthGuard]},
+  {path: "Favorites", component:FavoritesComponent}
 ];
 
 @NgModule({

@@ -26,6 +26,7 @@ import {TableModule} from 'primeng/table';
 import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dashboard.component'
 import { Button, ButtonModule } from 'primeng/button';
 import { MessageService } from 'primeng/api';
+import { FavoritesComponent } from './Components/favorites/favorites.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { MessageService } from 'primeng/api';
     CardComponent,
     UserMenuComponent,
     CreateMenuComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    FavoritesComponent
     
     
     
