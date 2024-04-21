@@ -22,19 +22,39 @@
 </div>
 
 
-<div class=" ml-20 mr-20 text-center">
-<p class="text-3xl font-semibold leading-loose text-gray-900 pt-6 pl-3">
-  Mai jos puteți regăsi câteva dintre rețetele noastre recomandate pentru persoane cu diabet de tip {{userDiabetType}}
-</p>
+<div class="mx-8 text-center">
+  <p class="text-2xl font-semibold leading-tight text-gray-900 my-4">
+    Rețetele noastre
+  </p>
+  <p class="mb-4 font-normal text-gray-500 sm:text-lg">Mai jos puteți regăsi câteva dintre rețetele noastre recomandate pentru persoane cu diabet de tip {{userDiabetType}}:</p>
 </div>
 
-<div class="pt-10 pb-10 px-4 sm:px-6 lg:px-8 ">
-  <div class="max-w-4xl mx-auto ">
-    <div class="flex flex-wrap -mx-2">
-      <div class="w-full px-2 sm:w-1/2 lg:w-1/2 xl:w-1/2 mb-4" *ngFor="let menu of menus">
+<div class="px-4 sm:px-6 lg:px-8">
+  <div class="max-w-4xl mx-auto">
+    <div class="flex flex-wrap mx-0">
+      <div class="w-full px-1 mb-0 flex justify-center" *ngFor="let menu of menus">
         <ng-container *ngIf="menu.userId === 0">
           <app-card [menu]="menu" [menuid]="menu.id"></app-card>
         </ng-container>
+      </div>
+    </div>
+  </div>
+  <div class="mx-8 text-center">
+    <p class="text-2xl font-semibold leading-tight text-gray-900 my-4">
+      Rețetele create de dumneavoastră
+    </p>
+    <p class="mb-4 font-normal text-gray-500 sm:text-lg">Mai jos se află rețetele create personal de dumneavoastră.</p>
+  </div>
+  
+  <div class="px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+      <div class="flex flex-wrap mx-0">
+        <div class="w-full px-1 mb-0 flex justify-center" *ngFor="let menu of menus">
+          <ng-container *ngIf="menu.userId === userId">
+            <app-card [menu]="menu" [menuid]="menu.id"></app-card>
+          </ng-container>
+         
+        </div>
       </div>
     </div>
   </div>

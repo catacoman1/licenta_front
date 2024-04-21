@@ -27,7 +27,9 @@ import { AdminDashboardComponent } from './Components/admin-dashboard/admin-dash
 import { Button, ButtonModule } from 'primeng/button';
 import { MessageService } from 'primeng/api';
 import { FavoritesComponent } from './Components/favorites/favorites.component';
-
+import { Carousel } from 'flowbite';
+import { CarouselModule } from 'primeng/carousel';
+import { TagModule } from 'primeng/tag';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,7 +62,9 @@ import { FavoritesComponent } from './Components/favorites/favorites.component';
     ToastModule,
     TableModule,
     ButtonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CarouselModule,
+    TagModule
    
     
     

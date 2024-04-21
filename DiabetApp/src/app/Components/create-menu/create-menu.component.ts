@@ -38,6 +38,15 @@ export class CreateMenuComponent implements OnInit {
   recommendations: { [category: string]: FoodItemSwap[] } = {};
   recommendationLoaded = false;
 
+  categoryRomana: { [key: string]: string } = {
+    'fruits': 'Fructe',
+    'vegetables': 'Legume',
+    'dairy': 'Lactate',
+    'bread': 'Pâine',
+    'sweets': 'Dulciuri',
+    'meat': 'Carne'
+  };
+
   constructor(
     private messageService : MessageService,
     private foodItemService: FoodItemService,
