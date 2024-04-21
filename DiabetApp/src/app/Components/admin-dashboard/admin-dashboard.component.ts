@@ -37,6 +37,7 @@ export class AdminDashboardComponent {
   menuForm: FormGroup;
 
   
+  
 
   
   
@@ -80,6 +81,8 @@ export class AdminDashboardComponent {
     this.loadNutrients();
     this.loadMenus();
     this.loadAllFoodItems();
+    
+    
 
     
   }
@@ -133,6 +136,7 @@ export class AdminDashboardComponent {
   onSubmitMenu() {
     if (this.menuForm.valid) {
       const formValue = this.menuForm.value;
+      const userId = this.authService.getUserId()
       const menuData: menu = {
         name: formValue.name,
         foodItemWithQuantities: formValue.foodItems.map((item: any) => ({
@@ -140,7 +144,8 @@ export class AdminDashboardComponent {
           quantity: item.quantity
         })),
         img: formValue.imageUrl,
-        sg: formValue.sg
+        sg: formValue.sg,
+        userId: 0
       };
   
       this.menuService.createMenu(menuData).subscribe({

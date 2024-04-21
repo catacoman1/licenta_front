@@ -146,7 +146,8 @@ export class CreateMenuComponent implements OnInit {
         quantity: item.quantity
       })),
       img: 'https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png' ,
-      sg: this.SG
+      sg: this.SG,
+      userId: Number(this.authService.getUserId())
     };
   
     
