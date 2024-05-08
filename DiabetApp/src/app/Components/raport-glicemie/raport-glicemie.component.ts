@@ -31,7 +31,7 @@ export class RaportGlicemieComponent {
   }
 
   showSuccess() {
-    this.messageService.add({severity:'success', summary: 'Success', detail: 'Glicemie salvată cu succes!'});
+    this.messageService.add({severity:'success', summary: 'Success', detail: 'Glicemie salvata cu succes!'});
   }
 
   showError() {
@@ -140,10 +140,10 @@ export class RaportGlicemieComponent {
             }
           });
         },
-        error: (error) => console.error('Error fetching user by email', error)
+        error: (error) => console.error('Eroare la incarcarea user-ului', error)
       });
     } else {
-      console.error('Missing glycemia value, date, or user email not found');
+      console.error('Valori necompletate');
     }
   }
 

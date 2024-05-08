@@ -130,10 +130,10 @@ export class CreateMenuComponent implements OnInit {
             
             this.recommendations[category] = recommendations; 
             this.recommendationLoaded = true;
-            console.log("Recommendations loaded for category " + category + ": ", recommendations);
+            console.log("Recomandari incarcate pentru cateogria " + category + ": ", recommendations);
         },
         error: (error) => {
-            console.error('Error fetching recommendations', error);
+            console.error('Eroare la incarcarea recomandarilor', error);
         }
     });
 }
@@ -183,7 +183,7 @@ export class CreateMenuComponent implements OnInit {
         this.foodItems = items;
       },
       error: (error) => {
-        console.error('Error fetching food items by category', error);
+        console.error('Eroare la incarcarea categoriei ', error);
         
       }
     });

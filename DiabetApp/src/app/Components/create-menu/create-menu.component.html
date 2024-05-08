@@ -63,8 +63,10 @@
     </figure>
   </div>
 
-
+  <label class="block text-sm font-medium text-gray-700 text-center pt-2">Mai jos puteți sorta alimentele în funcție de categoria acestora 
+    <br>(Fructe, Legume, Carne, Produse de patiserie/Făinoase, Lactate, Dulciuri/Condimente).</label>
   <div class="flex justify-center space-x-10 my-8">
+    
     <img src="../../../assets/fruit.png" alt="Icon Placeholder" class="h-12 cursor-pointer transition-transform duration-200 hover:scale-110" (click)="filterFoodItemsByCategory('fruits')" >
     <img src="../../../assets/vegetable.png" alt="Icon Placeholder" class="h-12 cursor-pointer transition-transform duration-200 hover:scale-110" (click)="filterFoodItemsByCategory('vegetables')">
     <img src="../../../assets/meat.png" alt="Icon Placeholder" class="h-12 cursor-pointer transition-transform duration-200 hover:scale-110" (click)="filterFoodItemsByCategory('meat')">
@@ -73,9 +75,16 @@
     <img src="../../../assets/sweets.png" alt="Icon Placeholder" class="h-12 cursor-pointer transition-transform duration-200 hover:scale-110" (click)="filterFoodItemsByCategory('sweets')">
   </div>
 
+  <blockquote class="text-center text-xl leading-8 text-gray-900 sm:text-3xl sm:leading-9">
+    <p>
+      Pentru a alcătui meniul, selectați alimentele dorite din partea stângă.
+      <br>
+      Aliemntele for vi afișate în chenarul din dreapta, de unde puteți selecta cantitatea dorită. La final apăsați butonul de salvare.
+    </p>
+  </blockquote>
 
   <div class="flex gap-8 px-8 my-8">
-
+    
     <div class="flex-1 bg-white shadow-lg rounded-lg p-6">
 
       <div *ngFor="let foodItem of foodItems" class="p-2 border-b border-gray-200 cursor-pointer"

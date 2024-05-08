@@ -1,17 +1,17 @@
-<mat-card class="w-full max-w-[26rem] shadow-lg">
+<mat-card class="w-full max-w-[80rem] shadow-lg border-5 rounded-xl border-gray-100">
   <div class="relative">
-    <img mat-card-image src="{{ menu?.img }}" alt="{{ menu?.name }}" class="w-full h-60 object-cover"/>
+    <img mat-card-image src="{{ menu?.img }}" alt="{{ menu?.name }}" class="w-full h-[30rem] object-cover"/>
     <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-transparent to-black/60"></div>
   </div>
   <mat-card-content class="flex justify-center text-center pt-4">
-    <h2 class="text-gray-800 mb-2">
+    <p class="text-2xl font-semibold leading-tight text-gray-900 my-3">
       {{ menu?.name }}
       
-    </h2>
+    </p>
     
     <div *ngIf="foodItemsVisible">
       <div *ngFor="let item of menu?.foodItemWithQuantities; let i = index">
-        <p class="text-gray-800 dark:text-gray-300">
+        <p class="text-gray-800 dark:text-gray-300 ">
           {{ foodItemsDetails[item.foodItemId].name }} - Cantitate: {{ item.quantity }}g
         
         </p>
@@ -32,7 +32,7 @@
  
   <mat-card-actions class="flex justify-center">
     <div class="flex flex-col items-center justify-center mb-2 ">
-    <button mat-button class="bg-gray-700 hover:bg-gray-900 text-white py-2 px-4 rounded" (click)="toggleFoodItemsVisibility()">
+    <button mat-button class="bg-gray-700 w-[30rem] hover:bg-gray-900 text-white py-2 px-4 rounded" (click)="toggleFoodItemsVisibility()">
       Listă de ingrediente
     </button>
     <br>
@@ -41,9 +41,5 @@
     </button>
   </div>
   </mat-card-actions>
-
-
-  
-
 
 </mat-card>
