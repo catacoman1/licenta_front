@@ -168,12 +168,18 @@ export class CreateMenuComponent implements OnInit {
         this.showSuccess();
         //this.loadSwapRecommendations(savedMenu.id as number);
         this.recommendationLoaded = true;
+        this.menuService.calculateSG().subscribe({
+        });
       },
+      
       error: (error) => {
         console.error('Error saving menu', error);
         this.showErrorSalvare();
       }
+
+      
     });
+   
   }
 
   filterFoodItemsByCategory(category: string): void {
@@ -192,6 +198,8 @@ export class CreateMenuComponent implements OnInit {
   getRecommendationKeys(): string[] {
     return Object.keys(this.recommendations);
   }
+
+  
   
 
 }

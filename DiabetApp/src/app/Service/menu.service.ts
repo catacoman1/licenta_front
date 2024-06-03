@@ -52,4 +52,8 @@ export class MenuService {
         const httpOptions = this.createHttpOptions();
         return this.http.get<FoodItemSwap[]>(`${this.apiServerUrl}/${menuId}/swap/${userId}`,httpOptions);
     }
+    public calculateSG(): Observable<string> {
+        const httpOptions = this.createHttpOptions();
+        return this.http.post<string>(`${this.apiServerUrl}/calculateSG`, {}, httpOptions);
+    }
 }
